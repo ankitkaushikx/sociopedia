@@ -1,5 +1,32 @@
+import React from "react";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import Form from "./Form.jsx";
+import { textAlign } from "@mui/system";
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  const theme = useTheme();
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  return (
+    <Box>
+      <Box width="100%" backgroundColor={theme.palette.background.alt} p="1rem 6%" textAlign="center">
+        <Typography fontWeight="bold" fontSize="32px" color="primary">
+          Sociopedia
+        </Typography>
+
+        <Box
+          width={isNonMobileScreens ? "50%" : "93%"}
+          p="2rem"
+          m="2rem auto"
+          borderRadius="1.5rem"
+          backgroundColor={theme.palette.background.alt}
+        >
+          <Typography fontWeight="500" varient="h5" sx={{ mb: "1.5rem" }}>
+            Welcome To Sociopedia , the Social Media for Sociopaths
+          </Typography>
+          <Form></Form>
+        </Box>
+      </Box>
+    </Box>
+  );
 };
 
 export default LoginPage;

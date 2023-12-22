@@ -43,7 +43,7 @@ export const login = async (req, res) => {
     }
 
     const token = JWT.sign({ id: user._id }, process.env.JWT_SECRET);
-    res.status(200).json({ token, id: user._id });
+    res.status(200).json({ token: token, id: user._id, user: user });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Failed to log in", details: error.message });
