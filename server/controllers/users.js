@@ -3,10 +3,14 @@ import User from "../models/User.js";
 //Read
 export const getUser = async (req, res) => {
   try {
+    console.log("GET USER CALLED");
     const { id } = req.params;
     const user = await User.findById(id);
     res.status(200).json(user);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: error });
+  }
 };
 
 export const getUserFriends = async (req, res) => {

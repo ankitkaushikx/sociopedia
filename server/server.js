@@ -49,8 +49,8 @@ const upload = multer({ storage });
 
 /* ROUTES */
 // Mount authRoutes at the path "/auth"
-app.use("/auth", authRoutes);
 app.use("/user", userRoutes);
+app.use("/auth", authRoutes);
 
 // ROUTES WITH FILES
 app.post("/posts", verifyToken, upload.single("picture"), createPost);

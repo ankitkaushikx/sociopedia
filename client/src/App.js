@@ -13,9 +13,17 @@ function App() {
   const mode = useSelector((state) => {
     return state.mode;
   });
+  //
+  const isAuth = Boolean(
+    useSelector((state) => {
+      return state.token;
+    })
+  );
+  //
   const theme = useMemo(() => {
     return createTheme(themeSettings(mode));
   }, [mode]);
+
   return (
     <div className="app">
       <BrowserRouter>
@@ -23,8 +31,8 @@ function App() {
           <CssBaseline />
           <Routes>
             <Route exact path="/" element={<LoginPage />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/profile/:userId" element={<ProfilePage />} />
+            <Route path="/home" element={isAuth ? <HomePage /> : <Navigate to="/" />} />
+            <Route path="/profile/:userId" element={isAuth ? <ProfilePage /> : <Navigate to="/" />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
