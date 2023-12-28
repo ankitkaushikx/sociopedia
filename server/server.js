@@ -55,6 +55,7 @@ app.use("/auth", authRoutes);
 // ROUTES WITH FILES
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.post("/auth/register", upload.single("picture"), register);
+app.use("/posts", postRoutes);
 app.get("/", (req, res) => {
   res.send("Working");
 });
