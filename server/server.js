@@ -72,7 +72,7 @@ const PORT = process.env.PORT || 5000;
 
 await connectDB()
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(5000, () => {
       console.log("--------SERVER STARTED SUCCESSFULLY AT", PORT);
     });
   })
