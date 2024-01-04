@@ -58,21 +58,23 @@ const upload = multer({ storage });
 // Mount authRoutes at the path "/auth"
 
 // ROUTES WITH FILES
+app.get("/", (req, res) => {
+  res.send("Working");
+});
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.post("/auth/register", upload.single("picture"), register);
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
 app.use("/auth", authRoutes);
-app.get("/", (req, res) => {
-  res.send("Working");
-});
 
 /* DATABASE AND SERVER */
 const PORT = process.env.PORT || 5000;
-
+app.listen(PORT, () => {
+  console.log("--------SERVER STARTED SUCCESSFULLY AT", PORT);
+});
 await connectDB()
   .then(() => {
-    app.listen(5000, () => {
+    app.listen(PORT, () => {
       console.log("--------SERVER STARTED SUCCESSFULLY AT", PORT);
     });
   })
