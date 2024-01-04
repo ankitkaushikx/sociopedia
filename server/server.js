@@ -59,7 +59,7 @@ const upload = multer({ storage });
 
 // ROUTES WITH FILES
 app.get("/", (req, res) => {
-  res.send("Working");
+  res.json("Hello");
 });
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.post("/auth/register", upload.single("picture"), register);
