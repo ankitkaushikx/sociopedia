@@ -9,7 +9,7 @@ const LoginPage = () => {
     <Box>
       <Box width="100%" backgroundColor={theme.palette.background.alt} p="1rem 6%" textAlign="center">
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-          Sociopedia
+          Thirdeyed
         </Typography>
 
         <Box
@@ -20,7 +20,7 @@ const LoginPage = () => {
           backgroundColor={theme.palette.background.alt}
         >
           <Typography fontWeight="500" varient="h5" sx={{ mb: "1.5rem" }}>
-            Welcome To Sociopedia , the Social Media for Sociopaths
+            Welcome To Thirdeyed
           </Typography>
           <Form></Form>
         </Box>
